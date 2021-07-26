@@ -1,8 +1,8 @@
 <launch>
   <node name="ydlidar_node"  pkg="ydlidar_ros"  type="ydlidar_node" output="screen" respawn="false" >
-    <param name="port"         type="string" value="/dev/ydlidar"/>  
+    <param name="port"         type="string" value="/dev/ttyUSB1"/>  
     <param name="baudrate"         type="int" value="115200"/>  
-    <param name="frame_id"     type="string" value="laser_frame"/>
+    <param name="frame_id"     type="string" value="laser_front"/>
     <param name="resolution_fixed"    type="bool"   value="true"/>
     <param name="auto_reconnect"    type="bool"   value="true"/>
     <param name="reversion"    type="bool"   value="false"/>
@@ -14,7 +14,9 @@
     <param name="frequency"    type="double" value="8"/>
     <param name="samp_rate"    type="int"    value="3"/>
     <param name="isSingleChannel"    type="bool"   value="true"/>
+    <remap from="/scan" to="/scan_front"/>
+
   </node>
-  <node pkg="tf" type="static_transform_publisher" name="base_link_to_laser4"
-    args="0.2245 0.0 0.2 0.0 0.0  0.0 /base_footprint /laser_frame 40" />
+  <node pkg="tf" type="static_transform_publisher" name="tf_base_ydlidar"
+    args="0.2245 0.0 0.2 0.0 0.0  0.0 /robot_base_footprint /laser_front 40" />
 </launch>

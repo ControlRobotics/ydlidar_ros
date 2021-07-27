@@ -18,5 +18,5 @@
 
   </node>
   <node pkg="tf" type="static_transform_publisher" name="tf_base_ydlidar"
-    args="0.2245 0.0 0.2 0.0 0.0  0.0 /robot_base_footprint /laser_front 40" />
+    args="0.55 0.2 0.2 2.73 0.0  0.0 /robot_base_footprint /laser_front 40" />
 </launch>

@@ -29,7 +29,7 @@ int main(int argc, char **argv)
 {
     ros::init(argc, argv, "ydlidar_client");
     ros::NodeHandle n;
-    ros::Subscriber sub = n.subscribe<sensor_msgs::LaserScan>("/scan", 1000, scanCallback);
+    ros::Subscriber sub = n.subscribe<sensor_msgs::LaserScan>("/scan", 1, scanCallback);
     ros::spin();
 
     return 0;
